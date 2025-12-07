@@ -26,7 +26,6 @@ Upload any image with faces and get instant emotion predictions:
 | Input | Output |
 |-------|--------|
 | Group photo | Annotated with emotion labels |
-| Single portrait | Detailed probability breakdown |
 
 ## Tech Stack
 
