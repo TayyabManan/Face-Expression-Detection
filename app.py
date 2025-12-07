@@ -367,10 +367,10 @@ def health():
     })
 
 
-if __name__ == '__main__':
-    # Load model on startup
-    load_model()
+# Load model on startup (works with both direct run and gunicorn)
+load_model()
 
+if __name__ == '__main__':
     # Determine detector name
     detector_name = "MTCNN" if (MTCNN_AVAILABLE and mtcnn is not None) else "Haar Cascade"
 
