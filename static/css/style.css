@@ -787,6 +787,16 @@ footer .emotions-list {
     color: var(--text-tertiary);
 }
 
+.attribution .authors a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.attribution .authors a:hover {
+    color: var(--accent);
+}
+
 /* Lightbox */
 .lightbox {
     position: fixed;
