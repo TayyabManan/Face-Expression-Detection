@@ -5,19 +5,21 @@ FROM python:3.11-slim
 WORKDIR /app
 
 # Install system dependencies for OpenCV
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     libglib2.0-0 \
     libsm6 \
     libxext6 \
-    libxrender-dev \
+    libxrender1 \
     libgl1 \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
 
 # Copy requirements first (for caching)
 COPY requirements-docker.txt .
 
-# Install Python dependencies
-RUN pip install --no-cache-dir -r requirements-docker.txt
+# Install Python dependencies (no cache to save space)
+RUN pip install --no-cache-dir -r requirements-docker.txt \
+    && rm -rf /root/.cache/pip
 
 # Copy application code
 COPY app.py .

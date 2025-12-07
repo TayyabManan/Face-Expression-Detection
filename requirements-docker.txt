@@ -2,9 +2,10 @@
 flask>=3.0.0
 gunicorn>=21.0.0
 
-# PyTorch (CPU version for smaller image)
-torch>=2.0.0
-torchvision>=0.15.0
+# PyTorch CPU-only (much smaller ~200MB vs ~2GB)
+--index-url https://download.pytorch.org/whl/cpu
+torch
+torchvision
 
 # Image processing
 opencv-python-headless>=4.8.0
